@@ -124,9 +124,11 @@ Before opening terminal, answer 2 questions:
 **3 Workflows:**
 
 #### Workflow 1 — Single Feature
-```
+
+```text
 Research → Plan → Implement → Test
 ```
+
 Use for: Single features, bug fixes
 
 #### Workflow 2 — Issue-Based
@@ -196,7 +198,30 @@ cd ../project-feat-b && claude
 
 ---
 
-## 📌 Tips from the Video
+## 🛠️ Maintenance Guide (Keep vs. Update)
+
+When starting a new project or migrating this setup, follow this guide to know what to keep as a "Base" and what requires customization.
+
+| Component | Status | Action |
+| :--- | :--- | :--- |
+| **`.claude/hooks/`** | 🟢 **Keep** | Standard scripts for linting and safety. No change needed unless using a different language (e.g., Python vs Node). |
+| **`.claude/commands/`** | 🟢 **Keep** | Standard workflows like `/commit` or `/pr`. These are universal. |
+| **`.claude/agents/`** | 🟢 **Keep** | Specialized sub-agents. They work the same across projects. |
+| **`.claude/settings.json`** | 🟡 **Review** | Update `Write()` permissions if your folder structure changes (e.g., from `app/` to `src/`). |
+| **`CLAUDE.md`** | 🔴 **UPDATE** | **Critical.** This is the project's brain. Update goals, tech stack, and rules for every new repo. |
+| **`docs/architecture.md`** | 🔴 **UPDATE** | **Specific.** Update with your actual system design, DB schema, and data flows. |
+| **`.env.example`** | 🔴 **UPDATE** | Update based on the services (Stripe, Clerk, Supabase, etc.) your project uses. |
+| **`docs/spec-doc.md`** | 🔴 **UPDATE** | Unique to your product's requirements. |
+
+### Specific Cases for Update
+
+1. **Change of Framework:** If moving from Next.js to Python/FastAPI, update `.claude/hooks/auto-lint.sh` to use `ruff` or `flake8` instead of `npm run lint`.
+2. **Folder Structure:** If you put code in `src/`, update `.claude/settings.json` permissions to allow writing to `src/**`.
+3. **Database:** If switching from SQL to NoSQL, update the `Database Schema` section in `docs/architecture.md` to reflect your collections/documents.
+
+---
+
+## 📌 Tips
 
 1. **Use Opus 4 for important tasks** — costs more but avoids time-consuming bugs
 2. **Keep CLAUDE.md updated** — add patterns, encountered bugs, decisions
