@@ -1,32 +1,32 @@
-# Project Spec Doc — [Tên Dự Án]
+# Project Spec Doc — [Project Name]
 
-> 📋 Tài liệu đặc tả dự án (lightweight PRD + EDD)
-> Hoàn thiện phần này TRƯỚC KHI bắt đầu code.
-> Claude sẽ dùng file này để hiểu đúng những gì cần xây dựng.
+> 📋 Project specification document (lightweight PRD + EDD)
+> Complete this section BEFORE starting to code.
+> Claude uses this file to correctly understand what needs to be built.
 
 ---
 
-## 1. Mục tiêu dự án
+## 1. Project Goals
 
-**Dự án này để làm gì?**
-> [ ] Học tập / thực hành
-> [ ] Validate ý tưởng / prototype nhanh
-> [ ] Sản phẩm thực tế cho người dùng
+**What is this project for?**
+> [ ] Learning / practice
+> [ ] Validate idea / quick prototype
+> [ ] Real product for users
 
-**Mô tả ngắn (1-2 câu):**
-[Ví dụ: "Ứng dụng journal cá nhân giúp người dùng ghi lại suy nghĩ hàng ngày và nhận insight từ AI"]
+**Brief description (1-2 sentences):**
+[Example: "Personal journal app that helps users record daily thoughts and receive AI insights"]
 
-**Thành công trông như thế nào?**
-[Ví dụ: "100 người dùng đầu tiên, mỗi người ghi ít nhất 5 entries/tuần"]
+**What does success look like?**
+[Example: "100 first users, each writing at least 5 entries/week"]
 
 ---
 
 ## 2. PRODUCT REQUIREMENTS
 
-### 2.1 Đối tượng người dùng
+### 2.1 Target Users
 
 **Primary user:**
-[Mô tả cụ thể — ví dụ: "Nhân viên văn phòng 25-35 tuổi, muốn tự phản tư nhưng không có thói quen viết journal"]
+[Specific description — example: "Office workers 25-35 years old, want to self-reflect but don't have journaling habit"]
 
 **User pain points:**
 - [Pain point 1]
@@ -36,38 +36,38 @@
 ### 2.2 User Stories
 
 **Must Have (Milestone 1):**
-- [ ] Là user, tôi muốn [hành động] để [mục đích]
-- [ ] Là user, tôi muốn [hành động] để [mục đích]
-- [ ] Là user, tôi muốn [hành động] để [mục đích]
+- [ ] As a user, I want [action] to [purpose]
+- [ ] As a user, I want [action] to [purpose]
+- [ ] As a user, I want [action] to [purpose]
 
 **Should Have (Milestone 2):**
-- [ ] Là user, tôi muốn [hành động] để [mục đích]
+- [ ] As a user, I want [action] to [purpose]
 
 **Nice to Have (Milestone 3+):**
-- [ ] Là user, tôi muốn [hành động] để [mục đích]
+- [ ] As a user, I want [action] to [purpose]
 
-### 2.3 User Interactions (CỤ THỂ)
+### 2.3 User Interactions (SPECIFIC)
 
-> ⚠️ Phần này quan trọng — càng cụ thể, Claude càng build đúng
+> ⚠️ This section is important — the more specific, the more accurate Claude builds
 
-**[Tính năng 1 — ví dụ: Tạo journal entry]**
-1. User mở app, thấy nút "New Entry" ở góc trên phải
-2. Click vào → modal mở ra với text editor
-3. User gõ nội dung (markdown supported)
-4. Có thể thêm mood (emoji picker: 😊 😐 😔 😤 🎉)
-5. Click "Save" → entry được lưu, modal đóng
-6. Entry xuất hiện ở đầu danh sách với timestamp
+**[Feature 1 — example: Create journal entry]**
+1. User opens app, sees "New Entry" button in top right
+2. Click → modal opens with text editor
+3. User types content (markdown supported)
+4. Can add mood (emoji picker: 😊 😐 😔 😤 🎉)
+5. Click "Save" → entry saved, modal closes
+6. Entry appears at top of list with timestamp
 
-**[Tính năng 2]**
+**[Feature 2]**
 ...
 
 ### 2.4 UI/UX Requirements
 
 - **Platform:** Web (responsive) / Mobile app / Desktop
 - **Design style:** [Minimal / Bold / Playful / Professional]
-- **Dark mode:** Có / Không
-- **Language:** Tiếng Việt / Tiếng Anh / Song ngữ
-- **Accessibility:** Cơ bản / WCAG AA compliant
+- **Dark mode:** Yes / No
+- **Language:** English / Vietnamese / Bilingual
+- **Accessibility:** Basic / WCAG AA compliant
 
 ---
 
@@ -75,7 +75,7 @@
 
 ### 3.1 Tech Stack
 
-| Component | Technology | Lý do |
+| Component | Technology | Reason |
 |-----------|-----------|-------|
 | Framework | Next.js 15 | |
 | Styling | Tailwind CSS + shadcn/ui | |
@@ -88,17 +88,17 @@
 
 ### 3.2 Architecture Overview
 
-**Loại app:**
+**App type:**
 > [ ] Full-stack monolith (Next.js)
 > [ ] Frontend + separate backend
 > [ ] Serverless functions only
 
-**Database design (tóm tắt):**
+**Database design (summary):**
 
-| Bảng | Mục đích | Fields chính |
+| Table | Purpose | Main Fields |
 |------|---------|--------------|
-| users | Thông tin user | id, clerk_id, email, created_at |
-| [table_2] | [mục đích] | [fields] |
+| users | User info | id, clerk_id, email, created_at |
+| [table_2] | [purpose] | [fields] |
 
 **Authentication flow:**
 - [ ] Email/Password
@@ -106,31 +106,31 @@
 - [ ] GitHub OAuth
 - [ ] Magic link
 
-**Payment model (nếu có):**
+**Payment model (if any):**
 - [ ] One-time purchase
 - [ ] Monthly subscription
 - [ ] Freemium (free tier + paid)
-- Giá: [Free tier limits] / $[X]/tháng / $[Y]/năm
+- Price: [Free tier limits] / $[X]/month / $[Y]/year
 
 ### 3.3 API Design
 
-**Các API routes chính:**
+**Main API routes:**
 
-| Route | Method | Mục đích | Auth required |
+| Route | Method | Purpose | Auth required |
 |-------|--------|---------|---------------|
-| `/api/entries` | GET | Lấy danh sách entries | ✅ |
-| `/api/entries` | POST | Tạo entry mới | ✅ |
-| `/api/entries/[id]` | PUT | Cập nhật entry | ✅ |
-| `/api/entries/[id]` | DELETE | Xóa entry | ✅ |
+| `/api/entries` | GET | Get entries list | ✅ |
+| `/api/entries` | POST | Create new entry | ✅ |
+| `/api/entries/[id]` | PUT | Update entry | ✅ |
+| `/api/entries/[id]` | DELETE | Delete entry | ✅ |
 
 ### 3.4 Third-party Integrations
 
-| Service | Mục đích | Khi nào trigger |
+| Service | Purpose | When to Trigger |
 |---------|---------|----------------|
-| Clerk | Auth | Mọi protected route |
-| Stripe | Thanh toán | Upgrade plan |
+| Clerk | Auth | Every protected route |
+| Stripe | Payments | Upgrade plan |
 | Resend | Email | Welcome, password reset |
-| Claude API | AI features | [Khi nào] |
+| Claude API | AI features | [When] |
 
 ### 3.5 Performance Requirements
 
@@ -140,10 +140,10 @@
 
 ### 3.6 Security Requirements
 
-- [ ] RLS trên Supabase (users chỉ thấy data của mình)
-- [ ] API routes kiểm tra auth
+- [ ] RLS on Supabase (users only see their own data)
+- [ ] API routes check auth
 - [ ] Input validation & sanitization
-- [ ] Rate limiting trên AI endpoints
+- [ ] Rate limiting on AI endpoints
 - [ ] HTTPS everywhere
 
 ---
@@ -151,34 +151,34 @@
 ## 4. MILESTONES & TIMELINE
 
 ### Milestone 1 — MVP (Target: [DATE])
-**Definition of Done:** [Khi nào coi là xong MVP?]
+**Definition of Done:** [When is MVP considered complete?]
 
-Bao gồm:
+Includes:
 - [Feature 1]
 - [Feature 2]
 - [Feature 3]
-- Deployed lên production
+- Deployed to production
 
 ### Milestone 2 — Beta (Target: [DATE])
-**Definition of Done:** [Khi nào coi là xong Beta?]
+**Definition of Done:** [When is Beta considered complete?]
 
-Bao gồm:
+Includes:
 - [Feature 4]
 - [Feature 5]
 
 ---
 
-## 5. OUT OF SCOPE (Không làm trong lần này)
+## 5. OUT OF SCOPE (Not doing this time)
 
-- [Thứ sẽ không làm để tránh scope creep]
-- [Thứ sẽ không làm]
-- Mobile native app (chỉ làm web responsive)
+- [Thing to exclude to avoid scope creep]
+- [Thing to exclude]
+- Mobile native app (only responsive web)
 
 ---
 
 ## 6. OPEN QUESTIONS
 
-> Các câu hỏi chưa có câu trả lời — cần quyết định trước khi code
+> Questions without answers — need decisions before coding
 
-- [ ] [Câu hỏi 1] — Deadline quyết định: [DATE]
-- [ ] [Câu hỏi 2]
+- [ ] [Question 1] — Decision deadline: [DATE]
+- [ ] [Question 2]

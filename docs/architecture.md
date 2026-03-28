@@ -1,33 +1,33 @@
-# Architecture — Kiến trúc hệ thống
+# Architecture — System Architecture
 
-> 📌 Cập nhật file này sau mỗi thay đổi lớn về kiến trúc.
+> 📌 Update this file after each major architectural change.
 > Last updated: [DATE]
 
 ---
 
-## Tổng quan hệ thống
+## System Overview
 
-[Mô tả ngắn 2-3 câu về hệ thống: làm gì, phục vụ ai, quy mô]
+[2-3 sentence brief description of the system: what it does, who it serves, scale]
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology | Lý do chọn |
+| Layer | Technology | Reason for Choice |
 |-------|-----------|------------|
 | Frontend Framework | Next.js 15 (App Router) | SSR, SEO, Server Components |
-| Styling | Tailwind CSS + shadcn/ui | Nhanh, consistent |
-| Database | Supabase (PostgreSQL) | Real-time, RLS, auth tích hợp |
-| Auth | Clerk | Dễ integrate, nhiều providers |
+| Styling | Tailwind CSS + shadcn/ui | Fast, consistent |
+| Database | Supabase (PostgreSQL) | Real-time, RLS, built-in auth |
+| Auth | Clerk | Easy integration, multiple providers |
 | Payments | Stripe | Industry standard |
 | Email | Resend | Developer-friendly |
 | Hosting | Vercel | Zero-config deploy, Edge |
-| Storage | Cloudflare R2 | Rẻ, nhanh, S3-compatible |
+| Storage | Cloudflare R2 | Cheap, fast, S3-compatible |
 | AI | Anthropic Claude API | Best-in-class coding + reasoning |
 
 ---
 
-## Kiến trúc tổng thể
+## Overall Architecture
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -49,23 +49,23 @@
 
 ---
 
-## Luồng dữ liệu chính
+## Main Data Flows
 
-### Luồng 1: [Tên luồng, ví dụ: User Authentication]
-1. User click login
-2. Clerk xử lý OAuth / email
-3. JWT token được trả về
-4. Middleware Next.js verify token
-5. User data được load từ Supabase
+### Flow 1: [Flow name, example: User Authentication]
+1. User clicks login
+2. Clerk handles OAuth / email
+3. JWT token is returned
+4. Next.js middleware verifies token
+5. User data is loaded from Supabase
 
-### Luồng 2: [Tên luồng khác]
+### Flow 2: [Another flow name]
 ...
 
 ---
 
 ## Database Schema
 
-### Bảng: `users`
+### Table: `users`
 ```sql
 id          uuid PRIMARY KEY DEFAULT gen_random_uuid()
 clerk_id    text UNIQUE NOT NULL
@@ -74,9 +74,9 @@ name        text
 created_at  timestamptz DEFAULT now()
 ```
 
-### Bảng: `[tên bảng khác]`
+### Table: `[other table name]`
 ```sql
--- Thêm schema của bảng
+-- Add table schema
 ```
 
 ---
@@ -84,15 +84,15 @@ created_at  timestamptz DEFAULT now()
 ## Key Components
 
 ### `components/[ComponentName]`
-**Mục đích:** [Làm gì]
-**Props:** [Props chính]
-**State:** [State quản lý gì]
+**Purpose:** [What it does]
+**Props:** [Main props]
+**State:** [What state it manages]
 
 ---
 
 ## Environment Variables
 
-| Variable | Mục đích | Required |
+| Variable | Purpose | Required |
 |----------|---------|----------|
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend auth | ✅ |
 | `CLERK_SECRET_KEY` | Clerk server auth | ✅ |
@@ -103,30 +103,30 @@ created_at  timestamptz DEFAULT now()
 
 ---
 
-## Quyết định kiến trúc (ADRs)
+## Architecture Decisions (ADRs)
 
-### ADR-001: [Tên quyết định]
-- **Ngày:** [DATE]
-- **Trạng thái:** Đã chốt
-- **Bối cảnh:** [Vấn đề gặp phải]
-- **Quyết định:** [Chọn gì]
-- **Hậu quả:** [Trade-offs]
+### ADR-001: [Decision name]
+- **Date:** [DATE]
+- **Status:** Decided
+- **Context:** [Problem encountered]
+- **Decision:** [What was chosen]
+- **Consequences:** [Trade-offs]
 
 ---
 
 ## Performance Considerations
 
-- [ ] Images dùng `next/image` với lazy loading
-- [ ] Database queries có indexes phù hợp
-- [ ] API responses được cache khi có thể
-- [ ] Bundle size được monitor
+- [ ] Images use `next/image` with lazy loading
+- [ ] Database queries have appropriate indexes
+- [ ] API responses are cached when possible
+- [ ] Bundle size is monitored
 
 ---
 
 ## Security Checklist
 
-- [ ] RLS (Row Level Security) được bật trên Supabase
-- [ ] API routes có auth middleware
-- [ ] Input validation ở cả client và server
-- [ ] Environment variables không bị expose
-- [ ] CORS được config đúng
+- [ ] RLS (Row Level Security) is enabled on Supabase
+- [ ] API routes have auth middleware
+- [ ] Input validation on both client and server
+- [ ] Environment variables are not exposed
+- [ ] CORS is configured correctly

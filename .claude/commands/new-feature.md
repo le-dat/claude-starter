@@ -1,43 +1,43 @@
-# /new-feature [tên-feature] — Bắt đầu phát triển tính năng mới
+# /new-feature [feature-name] — Start developing a new feature
 
-Workflow chuẩn để phát triển một tính năng mới theo quy trình issue-based.
+Standard workflow for developing a new feature following the issue-based process.
 
-## Các bước thực hiện:
+## Steps to Execute:
 
-### 1. Research (Nghiên cứu)
-- Đọc `docs/architecture.md` để hiểu kiến trúc hiện tại
-- Đọc `CLAUDE.md` để nắm constraints và patterns
-- Xem issue liên quan trên GitHub nếu có: `gh issue view <number>`
+### 1. Research
+- Read `docs/architecture.md` to understand current architecture
+- Read `CLAUDE.md` to understand constraints and patterns
+- View related issue on GitHub if any: `gh issue view <number>`
 
-### 2. Planning (Lập kế hoạch)
-Trước khi code, hãy trình bày:
-- Approach dự kiến (technical approach)
-- Files sẽ được tạo/thay đổi
-- Các edge cases cần xử lý
-- Ước tính độ phức tạp
+### 2. Planning
+Before coding, present:
+- Expected approach (technical approach)
+- Files to be created/changed
+- Edge cases to handle
+- Complexity estimate
 
-**Đặt câu hỏi làm rõ nếu yêu cầu chưa rõ ràng trước khi code.**
+**Ask clarifying questions if requirements are unclear before coding.**
 
-### 3. Setup branch
+### 3. Setup Branch
 ```bash
 git checkout main
 git pull origin main
-git checkout -b feat/<tên-feature-ngắn>
+git checkout -b feat/<short-feature-name>
 ```
 
-### 4. Implementation (Triển khai)
-- Implement từng phần nhỏ
-- Commit thường xuyên với message rõ ràng
-- Theo đúng patterns đã có trong codebase
+### 4. Implementation
+- Implement in small parts
+- Commit frequently with clear messages
+- Follow existing patterns in codebase
 
 ### 5. Testing
-- Viết tests cho business logic
-- Chạy test suite: `npm run test`
-- Chạy type check: `npm run type-check`
-- Chạy lint: `npm run lint`
+- Write tests for business logic
+- Run test suite: `npm run test`
+- Run type check: `npm run type-check`
+- Run lint: `npm run lint`
 
 ### 6. Documentation
-- Chạy `/update-docs` để cập nhật tài liệu
+- Run `/update-docs` to update documentation
 
 ### 7. PR
-- Chạy `/pr` để tạo Pull Request
+- Run `/pr` to create Pull Request

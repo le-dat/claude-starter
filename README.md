@@ -1,37 +1,37 @@
 # 🚀 Claude Code Setup — PSB System
 
-> Bộ setup hoàn chỉnh cho Claude Code theo hệ thống **PSB (Plan → Setup → Build)**
-> Dựa trên workflow của Avthar Sewrathan
+> Complete setup for Claude Code following the **PSB (Plan → Setup → Build)** system
+> Based on Avthar Sewrathan's workflow
 
 ---
 
-## 📁 Cấu trúc thư mục
+## 📁 Directory Structure
 
 ```
 your-project/
 │
-├── CLAUDE.md                          # 🧠 Memory của Claude — đọc đầu mỗi session
-├── .env.example                       # 📋 Template biến môi trường
+├── CLAUDE.md                          # 🧠 Claude's Memory — read at start of each session
+├── .env.example                       # 📋 Environment variable template
 │
 ├── .claude/
-│   ├── settings.json                  # ⚙️  Permissions + Hooks config
+│   ├── settings.json                  # ⚙️ Permissions + Hooks config
 │   │
-│   ├── commands/                      # ⚡ Slash commands tùy chỉnh
+│   ├── commands/                      # ⚡ Custom slash commands
 │   │   ├── update-docs.md             # /update-docs
 │   │   ├── commit.md                  # /commit
 │   │   ├── pr.md                      # /pr
 │   │   ├── new-feature.md             # /new-feature
 │   │   └── retro.md                   # /retro
 │   │
-│   ├── agents/                        # 🤖 Subagents chạy độc lập
-│   │   ├── changelog-agent.md         # Cập nhật changelog
-│   │   ├── frontend-test-agent.md     # Chạy Playwright tests
-│   │   └── research-agent.md          # Nghiên cứu tech stack
+│   ├── agents/                        # 🤖 Subagents running independently
+│   │   ├── changelog-agent.md         # Update changelog
+│   │   ├── frontend-test-agent.md     # Run Playwright tests
+│   │   └── research-agent.md          # Research tech stack
 │   │
 │   └── hooks/                         # 🪝 Automation hooks
-│       ├── on-stop.sh                 # Chạy sau khi task xong
-│       ├── auto-lint.sh               # Lint sau khi edit file
-│       └── pre-bash-check.sh          # Kiểm tra lệnh nguy hiểm
+│       ├── on-stop.sh                 # Run after task completes
+│       ├── auto-lint.sh               # Lint after file edit
+│       └── pre-bash-check.sh          # Check dangerous commands
 │
 └── docs/
     ├── spec-doc.md                    # 📐 Project specification (Phase 1)
@@ -42,42 +42,42 @@ your-project/
 
 ---
 
-## ⚡ Bắt đầu nhanh
+## ⚡ Quick Start
 
-### Bước 1: Copy cấu trúc này vào dự án của bạn
+### Step 1: Copy this structure to your project
 
 ```bash
-# Clone hoặc copy thư mục này vào root của dự án
+# Clone or copy this directory to your project root
 cp -r claude-setup/. your-project/
-cd your-project
+cd your-project/
 ```
 
-### Bước 2: Cấp quyền cho hooks
+### Step 2: Give hooks execute permission
 
 ```bash
 chmod +x .claude/hooks/*.sh
 ```
 
-### Bước 3: Setup biến môi trường
+### Step 3: Setup environment variables
 
 ```bash
 cp .env.example .env.local
-# Điền các giá trị thực vào .env.local
+# Fill in actual values in .env.local
 ```
 
-### Bước 4: Điền thông tin vào CLAUDE.md
+### Step 4: Fill in CLAUDE.md
 
-Mở `CLAUDE.md` và điền:
-- [ ] Mục tiêu dự án
-- [ ] Tech stack cụ thể
+Open `CLAUDE.md` and fill in:
+- [ ] Project goals
+- [ ] Specific tech stack
 - [ ] Design style guide
 - [ ] Milestones
 
-### Bước 5: Hoàn thiện spec-doc.md
+### Step 5: Complete spec-doc.md
 
-Mở `docs/spec-doc.md` và điền đầy đủ trước khi code.
+Open `docs/spec-doc.md` and fill it in completely before coding.
 
-### Bước 6: Khởi động Claude Code
+### Step 6: Start Claude Code
 
 ```bash
 claude
@@ -85,37 +85,37 @@ claude
 
 ---
 
-## 🎯 Hệ thống PSB
+## 🎯 PSB System
 
 ### Phase 1: PLAN
-Trước khi mở terminal, trả lời 2 câu hỏi:
+Before opening terminal, answer 2 questions:
 
-**Câu hỏi 1:** Mục tiêu của dự án là gì?
-- Học tập → build nhanh, không cần production-ready
-- Validate ý tưởng → MVP tối giản trong 1-2 tuần
-- Sản phẩm thực → cần scalability, security đầy đủ
+**Question 1:** What is the project goal?
+- Learning → build fast, no need for production-ready
+- Validate idea → minimal MVP in 1-2 weeks
+- Real product → need full scalability, security
 
-**Câu hỏi 2:** Các milestones của dự án là gì?
-- Milestone 1 = MVP: [3-5 tính năng cốt lõi]
-- Milestone 2 = Beta: [thêm tính năng sau khi có feedback]
+**Question 2:** What are the project milestones?
+- Milestone 1 = MVP: [3-5 core features]
+- Milestone 2 = Beta: [additional features after feedback]
 
-**Deliverable:** Hoàn thiện `docs/spec-doc.md`
+**Deliverable:** Complete `docs/spec-doc.md`
 
 ---
 
-### Phase 2: SETUP (7 bước)
+### Phase 2: SETUP (7 steps)
 
-| # | Bước | File | Mô tả |
+| # | Step | File | Description |
 |---|------|------|-------|
-| 1 | GitHub Repo | — | Tạo repo, setup branches |
-| 2 | Env Variables | `.env.local` | Copy từ `.env.example`, điền keys |
-| 3 | CLAUDE.md | `CLAUDE.md` | Điền project memory |
-| 4 | Docs tự động | `docs/` | Tạo architecture, changelog, status |
-| 5 | Plugins | — | Cài Anthropic plugins |
-| 6 | MCPs | `.claude/settings.json` | Config theo tech stack |
-| 7 | Slash Commands | `.claude/commands/` | Đã có sẵn trong bộ này |
+| 1 | GitHub Repo | — | Create repo, setup branches |
+| 2 | Env Variables | `.env.local` | Copy from `.env.example`, fill in keys |
+| 3 | CLAUDE.md | `CLAUDE.md` | Fill in project memory |
+| 4 | Auto Docs | `docs/` | Create architecture, changelog, status |
+| 5 | Plugins | — | Install Anthropic plugins |
+| 6 | MCPs | `.claude/settings.json` | Config based on tech stack |
+| 7 | Slash Commands | `.claude/commands/` | Already included in this setup |
 
-**Bonus:** Pre-configure permissions + Hooks (đã config trong `settings.json`)
+**Bonus:** Pre-configured permissions + Hooks (configured in `settings.json`)
 
 ---
 
@@ -127,37 +127,37 @@ Trước khi mở terminal, trả lời 2 câu hỏi:
 ```
 Research → Plan → Implement → Test
 ```
-Dùng cho: Tính năng đơn lẻ, bug fix
+Use for: Single features, bug fixes
 
 #### Workflow 2 — Issue-Based
 ```
 GitHub Issues → Branch → Build → PR → Merge
 ```
-Dùng cho: Dự án có nhiều tính năng, làm việc có tổ chức
+Use for: Multi-feature projects, organized work
 
 ```bash
-# Tạo issues từ spec doc
-gh issue create --title "feat: [tên tính năng]" --body "[mô tả]"
+# Create issues from spec doc
+gh issue create --title "feat: [feature name]" --body "[description]"
 
-# Làm việc theo issue
-git checkout -b feat/issue-42-ten-tinh-nang
+# Work on issue
+git checkout -b feat/issue-42-feature-name
 # ... code ...
 /commit
 /pr
 ```
 
-#### Workflow 3 — Multi-Agent (nâng cao)
+#### Workflow 3 — Multi-Agent (advanced)
 ```
-Git Worktrees → Nhiều Claude instances song song → Merge
+Git Worktrees → Multiple Claude instances in parallel → Merge
 ```
-Dùng cho: Dự án lớn, cần tốc độ
+Use for: Large projects, speed needed
 
 ```bash
-# Tạo worktrees cho parallel development
+# Create worktrees for parallel development
 git worktree add ../project-feat-a feat/feature-a
 git worktree add ../project-feat-b feat/feature-b
 
-# Mở 2 terminal, chạy claude ở mỗi worktree
+# Open 2 terminals, run claude in each worktree
 cd ../project-feat-a && claude
 cd ../project-feat-b && claude
 ```
@@ -166,51 +166,51 @@ cd ../project-feat-b && claude
 
 ## ⚡ Slash Commands
 
-| Command | Mục đích |
+| Command | Purpose |
 |---------|---------|
-| `/new-feature [tên]` | Bắt đầu tính năng mới theo workflow chuẩn |
-| `/commit` | Tạo git commit với message chuẩn |
-| `/pr` | Tạo Pull Request lên GitHub |
-| `/update-docs` | Cập nhật changelog, status, architecture |
-| `/retro` | Tổng kết session, chuẩn bị cho lần sau |
+| `/new-feature [name]` | Start new feature following standard workflow |
+| `/commit` | Create git commit with standard message |
+| `/pr` | Create Pull Request to GitHub |
+| `/update-docs` | Update changelog, status, architecture |
+| `/retro` | Summarize session, prepare for next time |
 
 ---
 
 ## 🤖 Subagents
 
-| Agent | Trigger | Mục đích |
+| Agent | Trigger | Purpose |
 |-------|---------|---------|
-| `changelog-agent` | "cập nhật changelog" | Ghi lại thay đổi sau feature |
-| `frontend-test-agent` | "test UI" | Chạy Playwright tests |
-| `research-agent` | "nghiên cứu X" | So sánh và recommend tech |
+| `changelog-agent` | "update changelog" | Record changes after feature |
+| `frontend-test-agent` | "test UI" | Run Playwright tests |
+| `research-agent` | "research X" | Compare and recommend tech |
 
 ---
 
 ## 🪝 Hooks
 
-| Hook | Khi nào | Làm gì |
-|------|---------|--------|
-| `on-stop.sh` | Sau khi task xong | Chạy lint + type check |
-| `auto-lint.sh` | Sau khi edit file | Auto-fix lint errors |
-| `pre-bash-check.sh` | Trước lệnh bash | Block lệnh nguy hiểm |
+| Hook | When | What |
+|------|------|------|
+| `on-stop.sh` | After task completes | Run lint + type check |
+| `auto-lint.sh` | After file edit | Auto-fix lint errors |
+| `pre-bash-check.sh` | Before bash command | Block dangerous commands |
 
 ---
 
-## 📌 Tips từ video
+## 📌 Tips from the Video
 
-1. **Dùng Opus 4 cho tasks quan trọng** — tốn hơn nhưng tránh lỗi tốn thời gian fix
-2. **Cập nhật CLAUDE.md liên tục** — thêm patterns, lỗi đã gặp, decisions
-3. **Khi gặp bug, đừng chỉ fix** — ghi vào CLAUDE.md để tránh lặp lại
-4. **Code rẻ hơn thời gian** — đừng ngại xóa và build lại nếu direction sai
-5. **Dùng plan mode trước khi code** — `/new-feature` luôn plan trước khi implement
-6. **Commit thường xuyên** — mỗi tính năng nhỏ = 1 commit rõ ràng
+1. **Use Opus 4 for important tasks** — costs more but avoids time-consuming bugs
+2. **Keep CLAUDE.md updated** — add patterns, encountered bugs, decisions
+3. **When encountering a bug, don't just fix** — record it in CLAUDE.md to avoid repetition
+4. **Code is cheaper than time** — don't hesitate to delete and rebuild if direction is wrong
+5. **Use plan mode before coding** — `/new-feature` always plans before implementing
+6. **Commit frequently** — each small feature = 1 clear commit
 
 ---
 
-## 🔌 MCPs gợi ý theo tech stack
+## 🔌 Suggested MCPs by Tech Stack
 
 ```json
-// Thêm vào .claude/settings.json > mcpServers
+// Add to .claude/settings.json > mcpServers
 
 // Database
 "supabase": { "command": "npx", "args": ["@supabase/mcp-server-supabase"] }
@@ -228,4 +228,4 @@ cd ../project-feat-b && claude
 
 ---
 
-*Setup này dựa trên video "How I Start EVERY Claude Code Project" — PSB System*
+*This setup is based on the video "How I Start EVERY Claude Code Project" — PSB System*

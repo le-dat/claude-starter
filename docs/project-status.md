@@ -1,70 +1,70 @@
 # Project Status
 
-> 📌 Cập nhật file này khi bắt đầu và kết thúc mỗi session làm việc.
-> Giúp bạn resume công việc nhanh chóng sau khi nghỉ.
+> 📌 Update this file when starting and ending each work session.
+> Helps you resume work quickly after a break.
 
 ---
 
-## 🚦 Trạng thái hiện tại
+## 🚦 Current Status
 
 **Phase:** [ ] Planning  [ ] Setup  [x] Building  [ ] Beta  [ ] Production
 
-**Sprint hiện tại:** [Tên sprint / tuần số X]
+**Current Sprint:** [Sprint name / Week X]
 
-**Ngày cập nhật:** [DATE]
+**Last Updated:** [DATE]
 
 ---
 
 ## ✅ Milestone 1 — MVP (Target: [DATE])
 
-- [ ] Tính năng 1 — [Mô tả ngắn]
-- [ ] Tính năng 2 — [Mô tả ngắn]
-- [ ] Tính năng 3 — [Mô tả ngắn]
-- [ ] Deploy lên production
+- [ ] Feature 1 — [Brief description]
+- [ ] Feature 2 — [Brief description]
+- [ ] Feature 3 — [Brief description]
+- [ ] Deploy to production
 
-**Tiến độ:** 0 / 4 tasks hoàn thành
+**Progress:** 0 / 4 tasks completed
 
 ---
 
 ## 🔜 Milestone 2 — Beta (Target: [DATE])
 
-- [ ] Tính năng 4 — [Mô tả ngắn]
-- [ ] Tính năng 5 — [Mô tả ngắn]
+- [ ] Feature 4 — [Brief description]
+- [ ] Feature 5 — [Brief description]
 - [ ] User testing & feedback
 
 ---
 
-## 🎯 Đang làm (Session hiện tại)
+## 🎯 In Progress (Current Session)
 
-**Task đang focus:** [Tên task]
+**Task focused on:** [Task name]
 
-**Branch:** `feat/[tên-branch]`
+**Branch:** `feat/[branch-name]`
 
-**GitHub Issue:** #[số]
+**GitHub Issue:** #[number]
 
-**Tiến độ:**
-- [x] Bước 1 đã xong
-- [ ] Bước 2 đang làm
-- [ ] Bước 3 chưa bắt đầu
+**Progress:**
+- [x] Step 1 done
+- [ ] Step 2 in progress
+- [ ] Step 3 not started
 
 ---
 
-## 🔁 Context cho session tiếp theo
+## 🔁 Context for Next Session
 
-> Đọc phần này khi bắt đầu session mới để nắm bắt nhanh.
+> Read this section when starting a new session to get up to speed quickly.
 
-**Tiếp tục từ đâu:** [Mô tả cụ thể — ví dụ: "Đang fix bug login, dở ở bước validate JWT"]
+**Continue from:** [Specific description — example: "Fixing login bug, halfway through JWT validation step"]
 
-**Files đang làm việc:**
+**Files being worked on:**
 - `app/(auth)/login/page.tsx`
 - `lib/auth.ts`
 
-**Vấn đề cần giải quyết tiếp:**
-1. [Vấn đề 1]
-2. [Vấn đề 2]
+**Issues to resolve next:**
+1. [Issue 1]
+2. [Issue 2]
 
-**Decisions cần đưa ra:**
-- [ ] [Quyết định cần suy nghĩ thêm]
+**Decisions needed:**
+- [ ] [Decision requiring more thought]
 
 ---
 
@@ -72,11 +72,11 @@
 
 | Issue | Severity | Status | Notes |
 |-------|----------|--------|-------|
-| [Tên bug] | High / Medium / Low | Open / In Progress | [Ghi chú] |
+| [Bug name] | High / Medium / Low | Open / In Progress | [Notes] |
 
 ---
 
-## 📊 Metrics (nếu có)
+## 📊 Metrics (if any)
 
 - **Build time:** [X seconds]
 - **Bundle size:** [X KB]
@@ -88,13 +88,13 @@
 ## 📝 Session Log
 
 ### [DATE] — Session #X
-**Thời gian:** Xh
-**Đã làm:**
-- Hoàn thành [task]
-- Fix bug [tên]
+**Duration:** Xh
+**Completed:**
+- Completed [task]
+- Fixed bug [name]
 
-**Vấn đề gặp:**
-- [Mô tả]
+**Issues encountered:**
+- [Description]
 
-**Session tiếp theo:**
-- Bắt đầu từ [điểm này]
+**Next session:**
+- Start from [checkpoint]

@@ -1,33 +1,33 @@
-# /update-docs — Cập nhật tài liệu sau khi hoàn thành tính năng
+# /update-docs — Update Documentation After Completing a Feature
 
-Sau khi tôi hoàn thành tính năng vừa rồi, hãy thực hiện các bước sau:
+After completing a feature, perform the following steps:
 
-## 1. Cập nhật `docs/changelog.md`
-Thêm entry mới ở đầu file với format:
+## 1. Update `docs/changelog.md`
+Add new entry at the top of the file with format:
 ```
-## [DATE] — [Tên tính năng ngắn gọn]
+## [DATE] — [Brief feature name]
 ### Added
-- [Mô tả những gì đã thêm]
-### Changed  
-- [Mô tả những gì đã thay đổi]
+- [Description of what was added]
+### Changed
+- [Description of what was changed]
 ### Fixed
-- [Mô tả những gì đã fix]
+- [Description of what was fixed]
 ```
 
-## 2. Cập nhật `docs/project-status.md`
-- Đánh dấu ✅ cho task vừa hoàn thành trong danh sách milestones
-- Cập nhật section "Trạng thái hiện tại" với tiến độ mới nhất
-- Ghi note về việc cần làm tiếp theo
+## 2. Update `docs/project-status.md`
+- Mark ✅ for the completed task in milestones list
+- Update "Current Status" section with latest progress
+- Note what needs to be done next
 
-## 3. Cập nhật `docs/architecture.md` (nếu cần)
-Nếu tính năng vừa thêm thay đổi kiến trúc hệ thống:
-- Cập nhật sơ đồ hoặc mô tả luồng dữ liệu
-- Ghi lại quyết định kỹ thuật quan trọng
+## 3. Update `docs/architecture.md` (if needed)
+If the added feature changes system architecture:
+- Update diagram or data flow description
+- Record important technical decisions
 
-## 4. Cập nhật `CLAUDE.md` (nếu cần)
-Nếu có:
-- Lệnh mới cần biết
-- Pattern mới cần tuân theo
-- Lỗi mới đã gặp và cách fix
+## 4. Update `CLAUDE.md` (if needed)
+If there are:
+- New commands to know
+- New patterns to follow
+- New bugs encountered and how to fix
 
-Sau khi update xong, tóm tắt những gì đã thay đổi trong docs.
+After updating, summarize what was changed in the docs.

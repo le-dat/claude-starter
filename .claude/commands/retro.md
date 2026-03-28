@@ -1,28 +1,28 @@
-# /retro — Tổng kết phiên làm việc
+# /retro — Summarize Work Session
 
-Sau khi kết thúc session làm việc, hãy thực hiện tổng kết nhanh.
+After ending a work session, perform a quick summary.
 
-## Thực hiện:
+## Execute:
 
-1. **Nhìn lại những gì đã làm** trong session này:
+1. **Look back at what was done** in this session:
    ```bash
    git log --oneline --since="8 hours ago"
    ```
 
-2. **Tóm tắt:**
-   - ✅ Đã hoàn thành: [liệt kê]
-   - 🔄 Đang làm dở: [liệt kê + trạng thái]
-   - 🐛 Bugs đã phát hiện nhưng chưa fix: [liệt kê]
-   - 💡 Ý tưởng cải thiện: [liệt kê]
+2. **Summarize:**
+   - ✅ Completed: [list]
+   - 🔄 In progress: [list + status]
+   - 🐛 Bugs found but not fixed: [list]
+   - 💡 Improvement ideas: [list]
 
-3. **Cập nhật `docs/project-status.md`** với:
-   - Trạng thái cuối session
-   - Next steps ưu tiên
-   - Bất kỳ context quan trọng cần nhớ cho session tiếp theo
+3. **Update `docs/project-status.md`** with:
+   - End of session status
+   - Next priority steps
+   - Any important context to remember for next session
 
-4. **Kiểm tra có gì cần làm trước khi thoát:**
-   - Uncommitted changes? → Commit hoặc stash
-   - Failing tests? → Ghi chú lại
-   - TODOs trong code? → Tạo issues trên GitHub
+4. **Check if anything needs to be done before exiting:**
+   - Uncommitted changes? → Commit or stash
+   - Failing tests? → Note it down
+   - TODOs in code? → Create GitHub issues
 
-5. **Gợi ý cho session tiếp theo:** Nên bắt đầu từ đâu?
+5. **Suggestions for next session:** Where to start?

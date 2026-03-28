@@ -1,18 +1,18 @@
 # Changelog
 
-> Mọi thay đổi đáng chú ý của dự án đều được ghi lại ở đây.
-> Format theo [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-> Cập nhật tự động qua `/update-docs` hoặc `changelog-agent`.
+> All notable changes to the project are recorded here.
+> Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+> Auto-updated via `/update-docs` or `changelog-agent`.
 
 ---
 
 ## [Unreleased]
 
 ### Added
-- (các tính năng đang phát triển)
+- (features under development)
 
 ### Changed
-- 
+-
 
 ### Fixed
 -
@@ -22,26 +22,26 @@
 ## [0.1.0] — YYYY-MM-DD — Initial Setup
 
 ### Added
-- Khởi tạo dự án với Next.js + Tailwind CSS
-- Cấu hình Claude Code setup (CLAUDE.md, .claude/)
-- Tạo tài liệu kiến trúc ban đầu
+- Initialized project with Next.js + Tailwind CSS
+- Configured Claude Code setup (CLAUDE.md, .claude/)
+- Created initial architecture documentation
 
 ---
 
 <!--
-## Template cho entry mới:
+## Template for new entry:
 
-## [VERSION] — YYYY-MM-DD — Tên tính năng
+## [VERSION] — YYYY-MM-DD — Feature Name
 
 ### Added
-- Tính năng X: mô tả từ góc độ người dùng
+- Feature X: brief description from user perspective
 
 ### Changed
-- Thay đổi Y: tại sao thay đổi
+- Change Y: why it changed
 
 ### Fixed
-- Fix bug Z: triệu chứng và cách fix
+- Fix bug Z: symptoms and fix
 
 ### Removed
-- Loại bỏ W: lý do
+- Removed W: reason
 -->

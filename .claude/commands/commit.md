@@ -1,35 +1,35 @@
-# /commit — Tạo git commit chuẩn
+# /commit — Create Standard Git Commit
 
-Tạo một git commit cho các thay đổi hiện tại.
+Create a git commit for current changes.
 
-## Các bước thực hiện:
+## Steps to Execute:
 
-1. **Kiểm tra thay đổi:** Chạy `git status` và `git diff --staged` để hiểu những gì sẽ commit
+1. **Check changes:** Run `git status` and `git diff --staged` to understand what will be committed
 
-2. **Viết commit message** theo Conventional Commits:
+2. **Write commit message** following Conventional Commits:
    ```
-   <type>(<scope>): <mô tả ngắn gọn>
-   
-   [body — mô tả chi tiết nếu cần]
-   
+   <type>(<scope>): <brief description>
+
+   [body — detailed description if needed]
+
    [footer — breaking changes, closes issues]
    ```
-   
-   Các type hợp lệ:
-   - `feat` — tính năng mới
-   - `fix` — sửa lỗi
-   - `docs` — cập nhật tài liệu
-   - `style` — format, không đổi logic
-   - `refactor` — refactor code
-   - `test` — thêm/sửa tests
+
+   Valid types:
+   - `feat` — new feature
+   - `fix` — bug fix
+   - `docs` — documentation update
+   - `style` — formatting, no logic change
+   - `refactor` — code refactoring
+   - `test` — add/modify tests
    - `chore` — build, dependencies
 
-3. **Stage và commit:**
+3. **Stage and commit:**
    ```bash
    git add -A
    git commit -m "<message>"
    ```
 
-4. **KHÔNG push** lên main trực tiếp — tạo PR thay thế
+4. **DO NOT push** directly to main — create a PR instead
 
-Nếu muốn tạo PR ngay, dùng `/pr` sau khi commit.
+If you want to create a PR immediately after commit, use `/pr`.

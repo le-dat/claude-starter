@@ -1,22 +1,21 @@
 # CLAUDE.md — Project Memory
 
-> 📌 Cập nhật file này sau mỗi tính năng lớn hoặc thay đổi kiến trúc.
-> Claude sẽ đọc file này ở đầu mỗi phiên làm việc.
+> 📌 Update this file after each major feature or architectural change.
+> Claude reads this file at the start of each session.
 
 ---
 
-## 🎯 Mục tiêu dự án
+## 🎯 Project Goals
 
-<!-- Điền mục tiêu cụ thể: học tập / validate ý tưởng / prototype / production -->
-**Mục tiêu:** [Mô tả ngắn gọn dự án của bạn]
+**Objective:** [Brief description of your project]
 
-**Đối tượng người dùng:** [Ai sẽ dùng sản phẩm này?]
+**Target Users:** [Who will use this product?]
 
-**Vấn đề cần giải quyết:** [Vấn đề cốt lõi mà sản phẩm giải quyết]
+**Problem Solved:** [Core problem the product solves]
 
 ---
 
-## 🏗️ Kiến trúc tổng quan
+## 🏗️ Architecture Overview
 
 **Tech Stack:**
 - **Frontend:** Next.js + Tailwind CSS
@@ -24,102 +23,98 @@
 - **Auth:** Clerk
 - **Payments:** Stripe
 - **Email:** Resend
-- **Hosting:** Vercel (frontend) + DigitalOcean (backend nếu cần)
+- **Hosting:** Vercel (frontend) + DigitalOcean (backend if needed)
 - **Storage:** Cloudflare R2
 - **AI:** Anthropic Claude API
 
-**Cấu trúc thư mục chính:**
+**Main Directory Structure:**
 ```
 /app          → Next.js App Router pages
 /components   → React components
 /lib          → Utilities, helpers
 /api          → API routes
-/docs         → Tài liệu dự án (architecture, changelog, status)
+/docs         → Project documentation (architecture, changelog, status)
 ```
 
 ---
 
 ## 🎨 Design Style Guide
 
-- **UI Style:** [Minimal / Bold / Playful / Corporate — chọn một]
-- **Color palette chính:** [Ví dụ: slate + emerald accent]
-- **Font:** [Ví dụ: Geist Sans]
-- **Component library:** [Ví dụ: shadcn/ui]
-- **Dark mode:** [Có / Không]
+- **UI Style:** [Minimal / Bold / Playful / Corporate — choose one]
+- **Main Color palette:** [Example: slate + emerald accent]
+- **Font:** [Example: Geist Sans]
+- **Component library:** [Example: shadcn/ui]
+- **Dark mode:** [Yes / No]
 
 ---
 
 ## 📋 Milestones
 
 ### ✅ Milestone 1 — MVP
-- [ ] [Tính năng 1]
-- [ ] [Tính năng 2]
-- [ ] [Tính năng 3]
+- [ ] [Feature 1]
+- [ ] [Feature 2]
+- [ ] [Feature 3]
 
 ### 🔜 Milestone 2 — Beta
-- [ ] [Tính năng 4]
-- [ ] [Tính năng 5]
+- [ ] [Feature 4]
+- [ ] [Feature 5]
 
 ---
 
-## ⚠️ Constraints & Rules bắt buộc
+## ⚠️ Constraints & Rules
 
-1. **KHÔNG** push trực tiếp lên branch `main` — luôn dùng feature branch + PR
-2. **KHÔNG** commit file `.env` lên git
-3. **KHÔNG** xóa migration files của database
-4. **KHÔNG** thay đổi schema database mà không có migration
-5. Luôn viết test cho business logic quan trọng
-6. Luôn update `docs/changelog.md` sau khi hoàn thành tính năng
-7. Dùng TypeScript strict mode — không dùng `any`
-
----
-
-## 🔌 MCPs đang kết nối
-
-| MCP | Mục đích |
-|-----|----------|
-| `supabase` | Quản lý database |
-| `github` | Tạo issues, PRs |
-| `playwright` | Test UI tự động |
-| `filesystem` | Đọc/ghi file |
+1. **DO NOT** push directly to `main` branch — always use feature branch + PR
+2. **DO NOT** commit `.env` file to git
+3. **DO NOT** delete database migration files
+4. **DO NOT** change database schema without a migration
+5. Always write tests for important business logic
+6. Always update `docs/changelog.md` after completing a feature
+7. Use TypeScript strict mode — no `any`
 
 ---
 
-## 📁 Tài liệu tự động cập nhật
+## 🔌 Connected MCPs
 
-Claude nên đọc và cập nhật các file sau khi cần:
-
-- `docs/architecture.md` → Sau khi thay đổi hệ thống lớn
-- `docs/changelog.md` → Sau mỗi tính năng hoàn thành
-- `docs/project-status.md` → Khi bắt đầu/kết thúc session
+| MCP | Purpose |
+|-----|---------|
+| `supabase` | Database management |
+| `github` | Create issues, PRs |
+| `playwright` | Automated UI testing |
+| `filesystem` | File read/write |
 
 ---
 
-## 🚀 Các lệnh thường dùng
+## 📁 Auto-Updated Documentation
+
+Claude should read and update these files as needed:
+
+- `docs/architecture.md` → After major system changes
+- `docs/changelog.md` → After each completed feature
+- `docs/project-status.md` → When starting/ending a session
+
+---
+
+## 🚀 Common Commands
 
 ```bash
-npm run dev          # Chạy dev server
+npm run dev          # Run dev server
 npm run build        # Build production
-npm run test         # Chạy tests
+npm run test         # Run tests
 npm run lint         # Lint code
 npm run type-check   # TypeScript check
 ```
 
 ---
 
-## 🧠 Quyết định kiến trúc đã chốt
+## 🧠 Architectural Decisions
 
-<!-- Ghi lại các quyết định quan trọng và lý do tại sao -->
-
-| Quyết định | Lý do |
+| Decision | Reason |
 |------------|-------|
-| Dùng App Router thay Pages Router | Hỗ trợ Server Components, tốt hơn cho SEO |
-| Dùng Supabase thay MongoDB | Real-time subscriptions, RLS security |
+| Use App Router instead of Pages Router | Server Components support, better SEO |
+| Use Supabase instead of MongoDB | Real-time subscriptions, RLS security |
 
 ---
 
-## 🐛 Các lỗi đã gặp & cách fix
+## 🐛 Known Issues & Fixes
 
-<!-- Ghi lại để tránh lặp lại -->
-
-- **[Tên lỗi]:** [Nguyên nhân] → [Cách fix]
+- **[Bug Name]:** [Cause] → [Fix]

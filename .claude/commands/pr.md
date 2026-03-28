@@ -1,20 +1,20 @@
-# /pr — Tạo Pull Request lên GitHub
+# /pr — Create Pull Request to GitHub
 
-Tạo một Pull Request từ branch hiện tại.
+Create a Pull Request from the current branch.
 
-## Các bước thực hiện:
+## Steps to Execute:
 
-1. **Kiểm tra branch:** Đảm bảo không đang ở `main`
+1. **Check branch:** Ensure you're not on `main`
    ```bash
    git branch --show-current
    ```
 
-2. **Push branch lên remote:**
+2. **Push branch to remote:**
    ```bash
    git push origin $(git branch --show-current)
    ```
 
-3. **Tạo PR bằng GitHub CLI:**
+3. **Create PR using GitHub CLI:**
    ```bash
    gh pr create \
      --title "<title>" \
@@ -22,11 +22,11 @@ Tạo một Pull Request từ branch hiện tại.
      --base main
    ```
 
-4. **PR body** nên bao gồm:
-   - **Summary:** Mô tả ngắn những gì thay đổi
-   - **Changes:** Danh sách thay đổi cụ thể
-   - **Testing:** Cách kiểm tra tính năng
-   - **Screenshots:** (nếu có UI changes)
-   - **Closes:** Đóng issue nào (ví dụ: `Closes #42`)
+4. **PR body** should include:
+   - **Summary:** Brief description of changes
+   - **Changes:** List of specific changes
+   - **Testing:** How to test the feature
+   - **Screenshots:** (if UI changes)
+   - **Closes:** Which issue to close (example: `Closes #42`)
 
-5. In ra link PR sau khi tạo xong.
+5. Print the PR link after creation.
