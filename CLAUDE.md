@@ -1,120 +1,159 @@
-# CLAUDE.md — Project Memory
+# CLAUDE.md — {{PROJECT_NAME}}
 
-> 📌 Update this file after each major feature or architectural change.
-> Claude reads this file at the start of each session.
+> [ [Spec](docs/spec-doc.md) ] [ [Architecture](docs/architecture.md) ] [ [Plan](docs/project-plan.md) ] [ [Status](docs/project-status.md) ] [ [Changelog](docs/changelog.md) ]
 
----
-
-## 🎯 Project Goals
-
-**Objective:** [Brief description of your project]
-
-**Target Users:** [Who will use this product?]
-
-**Problem Solved:** [Core problem the product solves]
+> Claude reads this at the start of every session for core rules and tech stack.
 
 ---
 
-## 🏗️ Architecture Overview
+## 1. Project Overview
 
-**Tech Stack:**
-- **Frontend:** Next.js + Tailwind CSS
-- **Backend/Database:** Supabase / MongoDB
-- **Auth:** Clerk
-- **Payments:** Stripe
-- **Email:** Resend
-- **Hosting:** Vercel (frontend) + DigitalOcean (backend if needed)
-- **Storage:** Cloudflare R2
-- **AI:** Anthropic Claude API
+**Product:** {{PROJECT_NAME}} — {{PROJECT_DESCRIPTION}}
+**Core mechanic:** {{CORE_MECHANIC}}
+**Links:** [Detailed Specification](docs/spec-doc.md) | [System Architecture](docs/architecture.md)
 
-**Main Directory Structure:**
+---
+
+## 2. Repository Structure
+
 ```
-/app          → Next.js App Router pages
-/components   → React components
-/lib          → Utilities, helpers
-/api          → API routes
-/docs         → Project documentation (architecture, changelog, status)
+{{REPO_STRUCTURE}}
 ```
 
 ---
 
-## 🎨 Design Style Guide
+## 3. Core Logic
 
-- **UI Style:** [Minimal / Bold / Playful / Corporate — choose one]
-- **Main Color palette:** [Example: slate + emerald accent]
-- **Font:** [Example: Geist Sans]
-- **Component library:** [Example: shadcn/ui]
-- **Dark mode:** [Yes / No]
+Detailed in [Project Specification](docs/spec-doc.md).
+
+{{CORE_LOGIC_SECTION}}
 
 ---
 
-## 📋 Milestones
+## 4. System Architecture
 
-### ✅ Milestone 1 — MVP
-- [ ] [Feature 1]
-- [ ] [Feature 2]
-- [ ] [Feature 3]
+Detailed in [Architecture Design](docs/architecture.md).
 
-### 🔜 Milestone 2 — Beta
-- [ ] [Feature 4]
-- [ ] [Feature 5]
+### Core Coding Patterns
+
+{{CODING_PATTERNS}}
 
 ---
 
-## ⚠️ Constraints & Rules
+## 5. Environment Variables
 
-1. **DO NOT** push directly to `main` branch — always use feature branch + PR
-2. **DO NOT** commit `.env` file to git
-3. **DO NOT** delete database migration files
-4. **DO NOT** change database schema without a migration
-5. Always write tests for important business logic
-6. Always update `docs/changelog.md` after completing a feature
-7. Use TypeScript strict mode — no `any`
+```bash
+{{ENV_VARS}}
+```
 
 ---
 
-## 🔌 Connected MCPs
+## 6. Coding Patterns & Conventions
+
+### Commit convention
+
+```
+feat: add new feature
+fix: handle edge case
+chore: update dependencies
+test: add test coverage
+docs: update documentation
+```
+
+### TypeScript rules
+
+- `strict: true` — no `any`, no implicit returns
+- All DTOs use `class-validator` decorators
+- All entities use TypeORM decorators, never raw SQL except migrations
+- All service methods return typed promises, never `Promise<any>`
+
+### Error handling pattern
+
+```typescript
+// Custom exceptions — always extend HttpException
+export class BusinessException extends BadRequestException {
+  constructor(message: string) {
+    super(message);
+  }
+}
+```
+
+### Testing pattern
+
+```typescript
+describe("ServiceName", () => {
+  it("should handle success case");
+  it("should handle error case");
+});
+```
+
+---
+
+## 7. Testing & Quality
+
+**Essential Commands:**
+
+- `{{TEST_COMMAND}}` — Run tests
+- `{{LINT_COMMAND}} && {{TYPE_CHECK_COMMAND}}` — Static analysis
+
+---
+
+## 8. Security & Safety
+
+Full checklist in [Architecture (Security)](docs/architecture.md).
+
+{{SECURITY_CHECKLIST}}
+
+---
+
+## 9. Constraints & Rules (non-negotiable)
+
+1. **Never** push directly to `main` — always feature branch + PR
+2. **Never** commit `.env` or `.env.local` files
+3. **Never** use `synchronize: true` in TypeORM DataSource (production data loss risk)
+4. **Never** delete migration files — always roll forward
+5. **Always** run `{{TYPE_CHAIN_COMMAND}}` after any contract ABI change
+6. **Always** create a migration after changing any TypeORM entity
+7. **Always** use `/checkpoint` after completing a feature or ending a work session
+8. **Always** update `docs/project-plan.md` via `/checkpoint` to track progress
+9. Critical logic changes require a second pair of eyes (or explicit test coverage) before merge
+10. {{PROJECT_SPECIFIC_RULE}}
+
+---
+
+## 10. Available Slash Commands
+
+| Command | When to use |
+| :--- | :--- |
+| `/new-feature [name]` | Start any new feature (plans before coding) |
+| `/commit` | Create a well-formatted git commit |
+| `/pr` | Create a GitHub Pull Request |
+| `/checkpoint` | Unified sync: update changelog + status + plan progress |
+| `/generate-plan` | Create a detailed implementation plan |
+| {{ADDITIONAL_COMMANDS}}
+
+---
+
+## 11. Connected MCPs
 
 | MCP | Purpose |
 |-----|---------|
-| `supabase` | Database management |
-| `github` | Create issues, PRs |
-| `playwright` | Automated UI testing |
-| `filesystem` | File read/write |
+| `github` | Create issues, PRs, search code |
+| `filesystem` | File read/write operations |
+| `{{PROJECT_MCP}}` | {{PROJECT_MCP_PURPOSE}} |
 
 ---
 
-## 📁 Auto-Updated Documentation
-
-Claude should read and update these files as needed:
-
-- `docs/architecture.md` → After major system changes
-- `docs/changelog.md` → After each completed feature
-- `docs/project-status.md` → When starting/ending a session
-
----
-
-## 🚀 Common Commands
-
-```bash
-npm run dev          # Run dev server
-npm run build        # Build production
-npm run test         # Run tests
-npm run lint         # Lint code
-npm run type-check   # TypeScript check
-```
-
----
-
-## 🧠 Architectural Decisions
+## 12. Architectural Decisions
 
 | Decision | Reason |
-|------------|-------|
-| Use App Router instead of Pages Router | Server Components support, better SEO |
-| Use Supabase instead of MongoDB | Real-time subscriptions, RLS security |
+|----------|--------|
+{{ARCHITECTURAL_DECISIONS}}
 
 ---
 
-## 🐛 Known Issues & Fixes
+## 13. Known Issues
 
-- **[Bug Name]:** [Cause] → [Fix]
+| Issue | Workaround |
+|-------|------------|
+{{KNOWN_ISSUES}}

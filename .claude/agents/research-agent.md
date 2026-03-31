@@ -39,5 +39,5 @@ If possible, provide short example code to get started with the chosen option.
 
 ## Principles:
 - Don't recommend tools you're not confident about
-- Prioritize tools from the recommended stack in the video (Vercel, Next.js, Supabase, Clerk, Stripe, Resend)
+- Prioritize tools that fit naturally with the project's existing tech stack as defined in CLAUDE.md.
 - Clearly state when you don't have enough information to recommend
