@@ -77,7 +77,36 @@ info "Creating docs/ folder..."
 mkdir -p docs
 
 if [ ! -f "docs/spec-doc.md" ]; then
-- Initialized project with claude-setup
+  cat > docs/spec-doc.md << 'EOF'
+# Project Specification
+
+> Define your project vision, goals, and requirements here.
+> Fill this in with Claude: "Please help me fill docs/spec-doc.md"
+
+## Overview
+**Project Name:** {{PROJECT_NAME}}
+**Type:** {{PROJECT_TYPE}} (web app / api / mobile / etc)
+**Description:** {{PROJECT_DESCRIPTION}}
+
+## Goals
+1. Goal 1
+2. Goal 2
+
+## User Stories
+- As a [user], I want to [action] so that [benefit]
+
+## Requirements
+### Must Have (MVP)
+-
+
+### Nice to Have
+-
+
+### Out of Scope
+-
+EOF
+  success "Created docs/spec-doc.md"
+fi
 
 if [ ! -f "docs/architecture.md" ]; then
   cat > docs/architecture.md << 'EOF'
