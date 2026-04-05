@@ -1,27 +1,15 @@
-# Claude Code Setup
+# Claude Code Starter
 
-> AI Agent configuration — copy to any project for standardized Claude workflows.
+> Standardized Claude workflows.
 
-## Setup (30 seconds)
+## 1. Setup
 
 ```bash
-# 1. Run setup — creates directory, copies files, sets permissions
-bash setup.sh /path/to/your-project
-
-# 2. Enter your project
-cd your-project
-
-# 3. Start Claude
+bash setup.sh
 claude
 ```
 
-That's it. The rest is automatic.
-
----
-
-## First Time? Tell Claude About Your Project
-
-When Claude starts, paste this:
+## 2. Tell Claude About Your Project
 
 ```
 I want to set up my project. Here's my info:
@@ -31,22 +19,12 @@ I want to set up my project. Here's my info:
 - Core feature: WHAT_IT_DOES
 ```
 
-Claude will fill in the rest.
+## 3. Then running command
 
----
+1. `/checkpoint` => Save progress and sync docs
+2. `/generate-plan` => Generate plan for new feature
 
-## Daily Commands
-
-| Command | What it does |
-|---------|--------------|
-| `/new-feature name` | Plan a feature (always plans before coding) |
-| `/checkpoint` | Save progress and sync docs |
-| `/commit` | Create a commit |
-| `/pr` | Open a pull request |
-
----
-
-## What You Get
+## Structure
 
 ```
 your-project/
@@ -57,11 +35,3 @@ your-project/
 │   └── hooks/          # Auto-lint, auto-save
 └── docs/              # Auto-generated docs
 ```
-
----
-
-## Learn More
-
-- [Setup docs](docs/spec-doc.md) — fill in your project vision
-- [Architecture](docs/architecture.md) — system design
-- [Roadmap](docs/project-plan.md) — implementation plan
