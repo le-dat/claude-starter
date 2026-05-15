@@ -1,37 +1,61 @@
-# Claude Code Starter
+# Claude Starter
 
-> Standardized Claude workflows.
-
-## 1. Setup
+### Copy to Your Project
 
 ```bash
-bash setup.sh
-claude
+cp -r .claude path/to/your/project/
 ```
 
-## 2. Tell Claude About Your Project
+### Commands
 
 ```
-I want to set up my project. Here's my info:
-- Name: YOUR_PROJECT_NAME
-- Type: web app / api / mobile / etc
-- Tech stack: React + Node.js / Next.js + Supabase / etc
-- Core feature: WHAT_IT_DOES
+/plan              # Create plan for feature/bug
+/cook              # Build project from spec
+/debug             # Debug existing issue
+/fix               # Fix common errors
+/fix-test          # Fix failing tests
+/fix-ci            # Fix CI failures
+/test              # Run tests
+/cmp               # Compare code, git diff
+/watzup            # Check project status
+/code-reviewer     # Code review
 ```
 
-## 3. Then running command
+### Permissions
 
-1. `/checkpoint` => Save progress and sync docs
-2. `/generate-plan` => Generate plan for new feature
+Create and add `settings.local.json`:
 
-## Structure
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(curl:*)",
+      "Bash(git status:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(git add:*)",
+      "Bash(git rev-list:*)",
+      "Bash(git fetch:*)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)",
+      "Bash(gh pr:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker-compose ps:*)",
+      "Bash(docker-compose logs:*)",
+      "Bash(docker network:*)"
+    ]
+  }
+}
 
 ```
-your-project/
-├── CLAUDE.md          # Project brain
-├── .claude/
-│   ├── commands/      # /new-feature, /checkpoint, /commit, /pr
-│   ├── agents/        # Test agents
-│   └── hooks/          # Auto-lint, auto-save
-└── docs/              # Auto-generated docs
-```
+
+### Hooks
+
+Auto-format code on save — configured in `hooks/format-on-save.json`.
+
+
+### Statusline
+
+Status line displays: directory → git branch → model → session time → cost → tokens.
+
+Requires: `ccusage` (`npm i -g ccusage`).
